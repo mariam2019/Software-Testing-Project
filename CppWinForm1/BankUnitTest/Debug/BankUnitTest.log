@@ -1,0 +1,10 @@
+﻿  bankUnitTest.cpp
+  Generating Code...
+  Compiling...
+  accountUnitTest.cpp
+c:\users\mariam\documents\visual studio 2015\projects\cppwinform1\bankunittest\accountreadertest.h(26): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+  Generating Code...
+     Creating library C:\Users\Mariam\Documents\Visual Studio 2015\Projects\CppWinForm1\Debug\BankUnitTest.lib and object C:\Users\Mariam\Documents\Visual Studio 2015\Projects\CppWinForm1\Debug\BankUnitTest.exp
+  BankUnitTest.vcxproj -> C:\Users\Mariam\Documents\Visual Studio 2015\Projects\CppWinForm1\Debug\BankUnitTest.dll
+  BankUnitTest.vcxproj -> C:\Users\Mariam\Documents\Visual Studio 2015\Projects\CppWinForm1\Debug\BankUnitTest.pdb (Full PDB)
