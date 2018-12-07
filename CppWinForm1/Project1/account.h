@@ -71,6 +71,11 @@ public:
 
 	void draw(int x)	//function to accept amount and subtract from balance amount
 	{
+		if(x<0)
+			throw std::invalid_argument("Amount to be drawn can not be negative");
+		if(x>deposit)
+			throw std::invalid_argument("Amount to be drawn can not be bigger than deposit");
+
 		deposit -= x;
 	}
 
