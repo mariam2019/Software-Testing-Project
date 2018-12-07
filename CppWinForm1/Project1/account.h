@@ -31,14 +31,14 @@ public:
 	void create_account()//function to get data from user
 	{
 		cout << "\nEnter The account No. : ";
-		accntReader->readNumber(acno);
+		accntReader->readAccNo(acno);
 		cout << "\n\nEnter The Name of The account Holder : ";
 		accntReader->readName(name);
 		cout << "\nEnter Type of The account (C/S) : ";
-		accntReader->readChar(type);
+		accntReader->readType(type);
 		type = toupper(type);
 		cout << "\nEnter The Initial amount(>=500 for Saving and >=1000 for current ) : ";
-		accntReader->readNumber(deposit);
+		accntReader->readDeposit(deposit);
 		cout << "\n\n\nAccount Created..";
 	}
 
