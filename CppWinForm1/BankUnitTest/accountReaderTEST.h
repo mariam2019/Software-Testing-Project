@@ -5,18 +5,23 @@ class accountReaderTEST :
 public accountReader
 {
 	string nameTEST = "marina";
-	int TESTintval=-1;
+	int TESTaccno =-1;
+	int TESTdeposit = -1;
 	char TESTcharval='0';
 public:
 	void setnameTest(string n)
 	{
 		nameTEST = n;
 	}
-	void setintTest(int Testval)
+	void setTESTaccno(int Testval)
 	{
-		TESTintval = Testval;
+		TESTaccno = Testval;
 	}
-	void setcharTest(char Testval)
+	void setTESTdeposit(int Testval)
+	{
+		TESTdeposit = Testval;
+	}
+	void setTypeTest(char Testval)
 	{
 		TESTcharval = Testval;
 	}
@@ -26,12 +31,17 @@ public:
 		strcpy(name, nameTEST.c_str());
 	}
 
-	void readNumber(int& in) override
+	void readAccNo(int& in) override
 	{
-		in = TESTintval;
+		in = TESTaccno;
 	}
 
-	void readChar(char& in) override
+	void readDeposit(int& in) override
+	{
+		in = TESTdeposit;
+	}
+
+	void readType(char& in) override
 	{
 		in = TESTcharval;
 	}
