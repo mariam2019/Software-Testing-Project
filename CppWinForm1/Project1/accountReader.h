@@ -17,12 +17,17 @@ public:
 		
 	}
 
-	virtual void readNumber(int& in )
+	virtual void readDeposit(int& in )
 	{
 			cin >> in;
 	}
 
-	virtual void readChar(char& in)
+	virtual void readAccNo(int& in)
+	{
+		cin >> in;
+	}
+
+	virtual void readType(char& in)
 	{
 		cin >> in;
 	}
