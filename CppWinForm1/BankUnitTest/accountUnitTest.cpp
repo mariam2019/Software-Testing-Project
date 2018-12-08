@@ -17,15 +17,45 @@ namespace BankUnitTest
 
 		TEST_METHOD(create_accountTEST)
 		{
-			Logger::WriteMessage("What ever message");
+			Logger::WriteMessage("Create Account Test");
 			accountReaderTEST* accntReaderTest = new accountReaderTEST();
 			account accountUNDERTEST(accntReaderTest);
+			accountPROXY * accountUNDERTEST_PROXY = reinterpret_cast<accountPROXY *> (&accountUNDERTEST);
 
 			accntReaderTest->setnameTest("mariam");
+			accntReaderTest->setTESTaccno(55);
+			accntReaderTest->setTESTdeposit(1500);
+			accntReaderTest->setTypeTest('c');
+
 		    accountUNDERTEST.create_account();
-			Assert::AreEqual("mariam", accountUNDERTEST.getName());
-			
-			
+
+			Assert::AreEqual("mariam", accountUNDERTEST_PROXY->name,L"Name was not set correctly");
+			Assert::AreEqual(55, accountUNDERTEST_PROXY->acno, L"Account number was not set correctly");
+			Assert::AreEqual(1500, accountUNDERTEST_PROXY->deposit, L"Deposit was not set correctly");
+			Assert::AreEqual('C', accountUNDERTEST_PROXY->type, L"Type was not set correctly");
+
+			accntReaderTest->setTypeTest('C');
+			accountUNDERTEST.create_account();
+			Assert::AreEqual('C', accountUNDERTEST_PROXY->type, L"Type was not set correctly");
+
+			accntReaderTest->setTypeTest('T');
+			accountUNDERTEST.create_account();
+			Assert::AreNotEqual('T', accountUNDERTEST_PROXY->type, L"User entered an invalid account type and the function didn't reject it");
+		
+			accntReaderTest->setTESTdeposit(-50);
+			accountUNDERTEST.create_account();
+			Assert::AreNotEqual(-50, accountUNDERTEST_PROXY->deposit, L"User entered an invalid initial deposit (<0) and the function didn't reject it");
+
+			accntReaderTest->setTESTdeposit(450);
+			accntReaderTest->setTypeTest('S');
+			accountUNDERTEST.create_account();
+			Assert::AreNotEqual(450, accountUNDERTEST_PROXY->deposit, L"User entered an invalid initial deposit for type S (<500) and the function didn't reject it");
+
+			accntReaderTest->setTESTdeposit(850);
+			accntReaderTest->setTypeTest('C');
+			accountUNDERTEST.create_account();
+			Assert::AreNotEqual(850, accountUNDERTEST_PROXY->deposit, L"User entered an invalid initial deposit for type C (<1000) and the function didn't reject it");
+
 		}
 
 
